@@ -1,0 +1,34 @@
+//==============================================================================
+processor SineOsc [[main]]
+{
+    input event int note;
+
+    output stream float audioOut;
+
+    event note (int noteNumber)
+    {
+        phaseIncrement = float (twoPi * processor.period * soul::noteNumberToFrequency (noteNumber));
+    }
+
+    float currentNote, phaseIncrement, amplitude;
+
+    void run()
+    {
+        float phase;
+
+        loop
+        {
+            // A very simple amplitude envelope - linear attack, exponential decay
+            if (currentNote == 0)
+                amplitude *= 0.999f;
+            else
+                amplitude = min (amplitude + 0.001f, 1.0f);
+
+            phase = addModulo2Pi (phase, phaseIncrement);
+
+            audioOut << amplitude * sin (phase);
+            advance();
+        }
+    }
+}
+

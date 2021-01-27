@@ -1,0 +1,15 @@
+{
+    "soulPatchV1":
+    {
+        "ID":               "com.maxpollack.SineOsc",
+        "version":          "0.1",
+        "name":             "SineOsc",
+        "description":      "This is a SOUL Patch called SineOsc!",
+        "category":         "synth",
+        "manufacturer":     "Max Pollack",
+        "isInstrument":     true,
+
+        "source":           [ "SineOsc.soul" ]
+    }
+}
+
