@@ -42,7 +42,7 @@ struct Example  : public juce::JUCEApplication,
 
     void timerCallback() override
     {
-        processor->sendInputEvent("note", 60);
+        processor->sendInputEvent("note", 69);
         // debugging the line above shows processor->inputEventDetails.size()==0
     }
 
